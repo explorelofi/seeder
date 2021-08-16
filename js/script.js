@@ -1,54 +1,21 @@
 $(document).ready(async function () {
   const states = await getStates();
+  let cities = '';
   insertStatesOnSelect(states);
-
-  async function getStates() {
-    return fetch('http://api.lazzacriativa.com/v0/state')
-      .then((response) => response.json())
-      .then(({ data }) => {
-        return data.map(({ id_state, name }, index) => {
-          const id = index === 0 ? 0 : id_state;
-          const stateName = index === 0 ? 'Selecione um estado' : name;
-          return `<option value="${id}">${stateName}</option>`;
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-  function insertStatesOnSelect(states) {
-    const statesInput = document.querySelector('#state');
-    statesInput.innerHTML = states;
-  }
 
   const stateEl = document.querySelector('#state');
   stateEl.addEventListener('change', async (e) => {
     const idState = e.target.value;
-    const cities = await getCities(idState);
+    fillReadonlyState(idState, states);
+    cities = await getCities(idState);
     insertCitiesOnSelect(cities);
   });
 
-  async function getCities(idState) {
-    return fetch(`http://api.lazzacriativa.com/v0/city/state/${idState}`)
-      .then((response) => response.json())
-      .then(({ data }) => {
-        return data.map(({ id_city, name }, index) => {
-          const id = index === 0 ? 0 : id_city;
-          const cityName = index === 0 ? 'Selecione uma cidade' : name;
-          return `<option value="${id}">${cityName}</option>`;
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-  function insertCitiesOnSelect(cities) {
-    const citiesInput = document.querySelector('#city');
-    citiesInput.disabled = false;
-    citiesInput.innerHTML = cities;
-  }
+  const cityEl = document.querySelector('#city');
+  cityEl.addEventListener('change', (e) => {
+    const idCity = e.target.value;
+    fillReadonlyCity(idCity, cities);
+  });
 
   const registerButton = document.querySelector('#registerButton');
   registerButton.addEventListener('click', (e) => {
@@ -106,20 +73,3 @@ $(document).ready(async function () {
     });
   });
 });
-
-/**
- * Generates a random password.
- *
- * @param int $length Length of password, option, 8 by default
- * @return string The random password
- */
-function genRandomString(length = 8) {
-  const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&*';
-  const charactersLength = characters.length;
-  let randomString = '';
-  for (index = 0; index < length; index++) {
-    const index = Math.floor(Math.random() * (charactersLength - 1 - 0) + 0);
-    randomString += characters[index];
-  }
-  return randomString;
-}
