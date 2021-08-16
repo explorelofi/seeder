@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Lofi - Seeder</title>
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="styles/variables.css" />
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/floating-label.css" />
+
+</head>
+
+<body>
+  <div class="form-container">
+    <form id="formSeeder" name="formSeeder" action="save_images.php" method="post" enctype="multipart/form-data">
+      <div class="form-city">
+        <h2>Informações da cidade</h2>
+        <div class="form-input">
+          <label for="state">Estado</label>
+          <select class="placeholder-text" name="id_state" id="state" required>
+            <option value="0">Selecione um estado</option>
+          </select>
+        </div>
+
+        <div class="form-input">
+          <label for="states">Cidade</label>
+          <select class="placeholder-text" name="id_city" id="city" disabled="true" required>
+            <option value="0">Selecione uma cidade</option>
+          </select>
+        </div>
+
+        <div class="form-input form-input-img">
+          <input type="file" name="city_image_name" id="cityCover" accept="image/jpg,image/jpeg,image/png" required />
+          <label for="cityCover">
+            Adicione uma imagem da cidade
+            <img src="assets/icons/image-placholder.png" alt="Imagem da cidade" />
+          </label>
+        </div>
+
+        <div class="form-input input-container form-textarea">
+          <textarea class="text-area" name="city_description" id="cityDescription" cols="30" rows="30"
+            required></textarea>
+          <label for="cityDescription">Descrição da cidade</label>
+        </div>
+      </div>
+
+      <div class="form-experience">
+        <h2>Informações da experiência</h2>
+        <div class="form-input input-container">
+          <input type="text" name="experience_name" id="experienceName" required />
+          <label for="experienceName">Nome da experiência</label>
+        </div>
+
+        <div class="form-input form-input-img">
+          <input type="file" name="experience_image_name" id="experienceCover" accept="image/jpg,image/jpeg,image/png"
+            required />
+          <label for="experienceCover">
+            Selecione uma imagem da experiência
+            <img src="assets/icons/image-placholder.png" alt="Imagem da cidade" />
+          </label>
+        </div>
+
+        <div class="categories-wrapper">
+          <h3>Categorias</h3>
+          <div class="categories">
+            <div class="category-card active">
+              <figure>
+                <img src="assets/icons/food-drink.png" alt="Comida e bebida" />
+                <figcaption>
+                  <input type="radio" name="id_category" id="category-1" value="1" checked />
+                  <label for="category-1">Comida e bebida</label>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="category-card">
+              <figure>
+                <img src="assets/icons/location.png" alt="Passeio" />
+                <figcaption>
+                  <input type="radio" name="id_category" id="category-2" value="2" />
+                  <label for="category-2">Passeio</label>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="category-card">
+              <figure>
+                <img src="assets/icons/accomodation.png" alt="Hospedagem" />
+                <figcaption>
+                  <input type="radio" name="id_category" id="category-3" value="3" />
+                  <label for="category-3">Hospedagem</label>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="subcategories-wrapper">
+          <h3>Subcategorias</h3>
+          <div class="subcategories">
+            <div class="subcategory-card">
+              <input type="radio" name="id_subcategory" id="subcategory-1" value="1" checked />
+              <label for="subcategory-1">Parques</label>
+            </div>
+            <div class="subcategory-card active">
+              <input type="radio" name="id_subcategory" id="subcategory-2" value="2" />
+              <label for="subcategory-2">Caminhadas</label>
+            </div>
+            <div class="subcategory-card">
+              <input type="radio" name="id_subcategory" id="subcategory-3" value="3" />
+              <label for="subcategory-3">Museus</label>
+            </div>
+            <div class="subcategory-card">
+              <input type="radio" name="id_subcategory" id="subcategory-4" value="4" />
+              <label for="subcategory-4">Praias</label>
+            </div>
+            <div class="subcategory-card">
+              <input type="radio" name="id_subcategory" id="subcategory-5" value="5" />
+              <label for="subcategory-5">Cachoeiras</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-input input-container">
+          <textarea name="experience_comment" id="experienceComment" cols="30" rows="10" required></textarea>
+          <label for="experienceComment">Descrição da experiência</label>
+        </div>
+
+        <div class="form-input input-container">
+          <textarea name="experience_description" id="experienceDescription" cols="30" rows="10" required></textarea>
+          <label for="experienceDescription">Review da experiência</label>
+        </div>
+
+        <div class="evaluation-wrapper">
+          <div class="rate">
+            <div class="form-input input-container">
+              <h2>Avaliação</h2>
+              <figure class="star-icon"></figure>
+              <figure class="star-icon"></figure>
+              <figure class="star-icon"></figure>
+              <figure class="star-icon"></figure>
+              <figure class="star-icon"></figure>
+              <!-- <input type="number" name="rate" id="rate" min="1" max="5" placeholder="Avaliação" required />
+              <label for="rate">Avaliação</label> -->
+            </div>
+          </div>
+
+          <div class="values">
+            <div class="form-input input-container">
+              <h2>Valores</h2>
+              <figure class="value-icon"></figure>
+              <figure class="value-icon"></figure>
+              <figure class="value-icon"></figure>
+              <!-- <input type="number" name="price_value" id="values" min="1" max="3" placeholder="Valores" required />
+                <label for="values">Valores</label> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="form-address">
+          <h2>Endereço</h2>
+          <div class="form-input input-container cep">
+            <input type="text" name="experience_cep" id="cep" required />
+            <label for="cep">CEP</label>
+          </div>
+
+          <div class="form-input input-container street">
+            <input type="text" name="experience_street" id="street" required />
+            <label for="street">Rua</label>
+          </div>
+
+          <div class="form-input input-container district">
+            <input type="text" name="experience_district" id="district" required />
+            <label for="district">Bairro</label>
+          </div>
+
+          <div class="form-input input-container city">
+            <input type="text" id="cityReady" placeholder="Cidade" readonly required />
+            <label for="city">Cidade</label>
+          </div>
+
+          <div class="form-input input-container state">
+            <input type="text" id="stateReady" placeholder="Estado" readonly required />
+            <label for="state">Estado</label>
+          </div>
+
+          <div class="form-input input-container number">
+            <input type="number" name="experience_number" id="number" min="0" required />
+            <label for="number">Número</label>
+          </div>
+
+          <div class="map" id="map"></div>
+        </div>
+
+        <div class="form-user">
+          <div class="form-input input-container">
+            <input type="text" name="user_name" id="userName" required />
+            <label for="userName">Nome</label>
+          </div>
+
+          <div class="form-input input-container">
+            <input type="email" name="user_email" id="userEmail" placeholder="E-mail" required />
+            <label for=" userEmail">E-mail</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <button type="submit" class="register-button" id="registerButton" name="registerButton">
+          <img src="assets/icons/add-white.png" alt="Adicionar experiência">
+          Adicionar experiência
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      fetch('http://api.lazzacriativa.com/v0/state')
+        .then(response => response.json())
+        .then(({ data }) => {
+          const states = data.map(({ id_state, name }, index) => {
+            const id = (index === 0) ? 0 : id_state;
+            const stateName = (index === 0) ? 'Selecione um estado' : name;
+            return `<option value="${id}">${stateName}</option>`;
+          });
+          const statesInput = document.querySelector('#state');
+          statesInput.innerHTML = states;
+        })
+        .catch(err => { console.error(err) });
+
+      const state = document.querySelector('#state');
+      state.addEventListener('change', (e) => {
+        const idState = e.target.value;
+        fetch(`http://api.lazzacriativa.com/v0/city/state/${idState}`)
+          .then(response => response.json())
+          .then(({ data }) => {
+            const cities = data.map(({ id_city, name }, index) => {
+              const id = (index === 0) ? 0 : id_city;
+              const cityName = (index === 0) ? 'Selecione uma cidade' : name;
+              return `<option value="${id}">${cityName}</option>`;
+            });
+            const citiesInput = document.querySelector('#city');
+            citiesInput.disabled = false;
+            citiesInput.innerHTML = cities;
+          })
+          .catch(err => { console.error(err) })
+      });
+
+      const registerButton = document.querySelector('#registerButton');
+      registerButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const form = document.forms[0];
+        let dataObj = {};
+        let imagesFD = new FormData();
+
+        for (let index = 0; index < form.length; index++) {
+          if (form[index].name !== 'registerButton') {
+            if (form[index].name !== 'city_image_name' && form[index].name !== 'experience_image_name') {
+              dataObj[form[index].name] = form[index].value;
+            } else {
+              const image = document.querySelector(`#${form[index].id}`).files[0];
+              const imageName = genRandomString(16);
+              const extension = form[index].value.split('.').slice(-1)
+              imagesFD.append([form[index].name], image, `${imageName}.${extension}`);
+              dataObj[form[index].name] = `${imageName}.${extension}`;
+            }
+          }
+        }
+
+        $.ajax({
+          url: 'http://localhost/_Lofi/api/v0/seeder',
+          type: 'POST',
+          data: dataObj,
+          cache: false,
+          success: (response) => {
+            const res = JSON.parse(response);
+            if (res.status === 200) {
+              $.ajax({
+                // url: 'save_images.php',
+                url: 'http://localhost/_Lofi/api/v0/upload',
+                type: 'POST',
+                data: imagesFD,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: (response) => {
+                  const res = JSON.parse(response.substring(69, 138));
+                  if (res.success && res.status === 200) {
+                    alert('Cadastro feito com sucesso')
+                  }
+                },
+                error: (err) => {
+                  console.dir(err)
+                },
+              });
+            }
+          },
+          error: (err) => {
+            console.dir(err)
+          },
+        });
+      });
+    });
+
+    /**
+     * Generates a random password.
+     * 
+     * @param int $length Length of password, option, 8 by default
+     * @return string The random password
+     */
+    function genRandomString(length = 8) {
+      const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&*';
+      const charactersLength = characters.length;
+      let randomString = '';
+      for (index = 0; index < length; index++) {
+        const index = Math.floor(Math.random() * ((charactersLength - 1) - 0) + 0);
+        randomString += characters[index];
+      }
+      return randomString;
+    }
+  </script>
+
+  <script src="js/floating-label.js" defer></script>
+</body>
+
+</html>

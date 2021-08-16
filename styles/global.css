@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+.lofi-color-primary {
+  --lofi-color-base: var(--lofi-color-primary);
+  --lofi-color-base-rgb: var(--lofi-color-primary-rgb);
+  --lofi-color-contrast: var(--lofi-color-primary-contrast);
+  --lofi-color-contrast-rgb: var(--lofi-color-primary-contrast-rgb);
+  --lofi-color-shade: var(--lofi-color-primary-shade);
+  --lofi-color-tint: var(--lofi-color-primary-tint);
+}
+
+.lofi-color-success {
+  --lofi-color-base: var(--lofi-color-success);
+  --lofi-color-base-rgb: var(--lofi-color-success-rgb);
+  --lofi-color-contrast: var(--lofi-color-success-contrast);
+  --lofi-color-contrast-rgb: var(--lofi-color-success-contrast-rgb);
+  --lofi-color-shade: var(--lofi-color-success-shade);
+  --lofi-color-tint: var(--lofi-color-success-tint);
+}
+
+.lofi-color-light {
+  --lofi-color-base: var(--lofi-color-light);
+  --lofi-color-base-rgb: var(--lofi-color-light-rgb);
+  --lofi-color-contrast: var(--lofi-color-light-contrast);
+  --lofi-color-contrast-rgb: var(--lofi-color-light-contrast-rgb);
+  --lofi-color-shade: var(--lofi-color-light-shade);
+  --lofi-color-tint: var(--lofi-color-light-tint);
+}
+
+.lofi-color-dark {
+  --lofi-color-base: var(--lofi-color-dark);
+  --lofi-color-base-rgb: var(--lofi-color-dark-rgb);
+  --lofi-color-contrast: var(--lofi-color-dark-contrast);
+  --lofi-color-contrast-rgb: var(--lofi-color-dark-contrast-rgb);
+  --lofi-color-shade: var(--lofi-color-dark-shade);
+  --lofi-color-tint: var(--lofi-color-dark-tint);
+}
+
+.placeholder-text {
+  font-size: 1rem !important;
+  color: #aaa !important;
+}
+
+.form-textarea {
+  height: auto;
+  background-color: transparent;
+}
+
+.text-area {
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+:root {
+    --lofi-color-primary: #553a96;
+    --lofi-color-primary-rgb: 85, 58, 150;
+    --lofi-color-primary-contrast: #ffffff;
+    --lofi-color-primary-contrast-rgb: 255, 255, 255;
+    --lofi-color-primary-shade: #4b3384;
+    --lofi-color-primary-tint: #664ea1;
+  
+    --lofi-color-success: #6bc393;
+    --lofi-color-success-rgb: 107, 195, 147;
+    --lofi-color-success-contrast: #000000;
+    --lofi-color-success-contrast-rgb: 0, 0, 0;
+    --lofi-color-success-shade: #5eac81;
+    --lofi-color-success-tint: #7ac99e;
+  
+    --lofi-color-light: #035273;
+    --lofi-color-light-rgb: 3, 82, 115;
+    --lofi-color-light-contrast: #ffffff;
+    --lofi-color-light-contrast-rgb: 255, 255, 255;
+    --lofi-color-light-shade: #034865;
+    --lofi-color-light-tint: #1c6381;
+  
+    --lofi-color-dark: #140f22;
+    --lofi-color-dark-rgb: 20, 15, 34;
+    --lofi-color-dark-contrast: #ffffff;
+    --lofi-color-dark-contrast-rgb: 255, 255, 255;
+    --lofi-color-dark-shade: #120d1e;
+    --lofi-color-dark-tint: #2c2738;
+  
+    --accent-color: #6200ee;
+  }

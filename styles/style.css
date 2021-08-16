@@ -1,0 +1,338 @@
+* {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+body form {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-city .form-input,
+.form-experience .form-input {
+  margin-bottom: 1.5rem;
+  background: transparent;
+}
+
+.form-city .form-textarea {
+  margin-bottom: 0 !important;
+}
+
+.form-city div {
+  display: grid;
+}
+
+.form-input-img {
+  display: grid;
+}
+
+.form-input-img label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input-img label img {
+  width: 24px;
+  margin-left: 16px;
+}
+
+form label,
+form h2,
+form h3 {
+  color: #000;
+}
+
+.form-input select,
+.form-input textarea,
+.form-input input[type='text'],
+.form-input input[type='email'],
+.form-input input[type='number'],
+.form-input input[type='file'] + label {
+  color: #aaa;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #ebebeb;
+  caret-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  border-bottom-color: rgba(0, 0, 0, 0.42);
+  /* color: rgba(0, 0, 0, 0.87); */
+  transition: border 500ms;
+  padding: 20px 16px 6px;
+  font-size: 1rem;
+}
+
+.form-input select {
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-input input[type='file'] {
+  display: none;
+}
+
+.form-input input[type='file'] + label {
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-input select,
+.form-input input[type='file'] + label {
+  padding: 1rem;
+}
+
+.subcategories-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.categories,
+.subcategories {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.categories {
+  column-gap: 2rem;
+}
+
+.subcategories {
+  column-gap: 1.5rem;
+}
+
+.categories .category-card {
+  height: 113px;
+  width: 152px;
+  padding: 0.7rem 0 !important;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.categories .category-card figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categories .category-card figure img {
+  margin-bottom: 10px;
+  width: 40px;
+}
+
+.categories .category-card figure figcaption {
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgb(85 58 150 / 12%);
+}
+
+.categories .category-card,
+.subcategories .subcategory-card {
+  border: 1px solid rgb(85 58 150 / 12%);
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  line-height: 1.2em;
+  position: relative;
+}
+
+.subcategories .subcategory-card {
+  padding: 0.4rem 0.8rem;
+}
+
+.categories .category-card label,
+.subcategories .subcategory-card label {
+  cursor: pointer;
+}
+
+.categories .category-card.active {
+  box-shadow: 0px 1px 14px 14px rgb(85 58 150 / 12%);
+}
+
+.subcategories .subcategory-card.active {
+  box-shadow: 0px 1px 14px 2px rgb(85 58 150 / 12%);
+}
+
+.categories .category-card.active::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: -5px;
+  top: -5px;
+  background-image: url(../assets/icons/check-outline-green.png);
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+
+.subcategories .subcategory-card.active::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: -5px;
+  top: -5px;
+  background-image: url(../assets/icons/check-outline-green.png);
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+}
+
+.categories input[type='radio'],
+.subcategories input[type='radio'] {
+  display: none;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submit-container .register-button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--lofi-color-success);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-container img {
+  width: 24px;
+  margin-right: 16px;
+}
+
+.evaluation-wrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rate .form-input,
+.values .form-input {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  background: transparent;
+}
+
+.rate .input-container,
+.values .input-container {
+  margin-bottom: 0 !important;
+}
+
+.rate .input-container:hover,
+.values .input-container:hover {
+  background-color: transparent !important;
+}
+
+.rate .form-input .star-icon {
+  background-image: url(../assets/icons/star-outline.png);
+
+}
+
+.values .form-input .value-icon {
+  background-image: url(../assets/icons/value-outline.png);
+}
+
+.rate .form-input .star-icon,
+.values .form-input .value-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* Form Address */
+.cep {grid-area: cep;}
+.street {grid-area: street;}
+.district {grid-area: district;}
+.city {grid-area: city;}
+.state {grid-area: state;}
+.number {grid-area: number;}
+
+.form-address {
+  display: grid;
+  grid-template-areas:
+    'cep cep street street street street'
+    'district district city city state number'
+  ;
+  column-gap: 1.5rem;
+}
+
+/* Form User */
+.form-user {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 1.5rem;
+}
+
+.form-user .form-input {
+  width: 100%;
+}
+
+/* Hidden Placeholder */
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: transparent;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: transparent;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: transparent;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: transparent;
+}
+input::placeholder {
+  color: transparent;
+}
+textarea::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: transparent;
+}
+textarea:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: transparent;
+}
+textarea::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: transparent;
+}
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: transparent;
+}
+textarea::placeholder {
+  color: transparent;
+}
