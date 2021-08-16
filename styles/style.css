@@ -46,12 +46,13 @@ body form {
 .form-input-img label img {
   width: 24px;
   margin-left: 16px;
+  filter: invert(72%) sepia(0%) saturate(1%) hue-rotate(89deg) brightness(85%) contrast(85%);
 }
 
 form label,
 form h2,
 form h3 {
-  color: #000;
+  color: var(--lofi-color-dark);
 }
 
 .form-input select,
