@@ -34,11 +34,13 @@
 }
 
 .input-container:hover {
-  background-color: #ececec;
+  background-color: transparent;
+  /* background-color: #ececec; */
 }
 
 .input-container:focus-within {
-  background-color: #dcdcdc;
+  background-color: transparent;
+  /* background-color: #dcdcdc; */
 }
 
 .input-container > label {
