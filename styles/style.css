@@ -15,6 +15,10 @@ body form {
   flex-direction: column;
 }
 
+.form-container {
+  margin: 0 auto;
+}
+
 .form-city .form-input,
 .form-experience .form-input {
   margin-bottom: 1.5rem;
@@ -197,6 +201,7 @@ form h3 {
 }
 
 .submit-container {
+  margin-bottom: 2rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -251,7 +256,6 @@ form h3 {
 
 .rate .form-input .star-icon {
   background-image: url(../assets/icons/star-outline.png);
-
 }
 
 .values .form-input .value-icon {
@@ -269,19 +273,30 @@ form h3 {
 }
 
 /* Form Address */
-.cep {grid-area: cep;}
-.street {grid-area: street;}
-.district {grid-area: district;}
-.city {grid-area: city;}
-.state {grid-area: state;}
-.number {grid-area: number;}
+.cep {
+  grid-area: cep;
+}
+.street {
+  grid-area: street;
+}
+.district {
+  grid-area: district;
+}
+.city {
+  grid-area: city;
+}
+.state {
+  grid-area: state;
+}
+.number {
+  grid-area: number;
+}
 
 .form-address {
   display: grid;
   grid-template-areas:
-    'cep cep street street street street'
-    'district district city city state number'
-  ;
+    'cep street street street street street'
+    'district district city city state number';
   column-gap: 1.5rem;
 }
 

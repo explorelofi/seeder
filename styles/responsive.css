@@ -1,0 +1,42 @@
+/* XS Screen */
+@media (max-width: 575px) {
+  .form-container {
+    width: 100%;
+  }
+
+  .evaluation-wrapper {
+    display: grid;
+  }
+}
+
+/* SM Screen */
+@media (min-width: 576px) and (max-width: 767px) {
+  .form-container {
+    width: 540px;
+  }
+}
+
+/* MD Screen */
+@media (min-width: 578px) and (max-width: 991px) {
+  .form-container {
+    width: 620px;
+  }
+}
+
+/* LG Screen */
+@media (min-width: 992px) and (max-width: 1999px) {
+  .form-container {
+    width: 760px;
+  }
+}
+
+/* XL Screen */
+@media (min-width: 1200px) {
+  .form-container {
+    width: 840px;
+  }
+
+  .categories {
+    column-gap: 2.5rem;
+  }
+}
