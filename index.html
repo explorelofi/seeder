@@ -12,6 +12,9 @@
   <script src="js/form-fucntions.js"></script>
   <script src="js/script.js"></script>
 
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
   <link rel="stylesheet" href="styles/variables.css" />
   <link rel="stylesheet" href="styles/global.css" />
   <link rel="stylesheet" href="styles/style.css" />
@@ -69,10 +72,10 @@
           </label>
         </div>
 
-        <div class="categories-wrapper">
+        <div class="categories-wrapper swiper-container">
           <h2>Categorias</h2>
-          <div class="categories">
-            <div class="category-card" data-name="food-drink">
+          <div class="categories swiper-wrapper">
+            <div class="category-card swiper-slide" data-name="food-drink">
               <figure>
                 <img src="assets/icons/food-drink.png" alt="Comida e bebida" />
                 <figcaption>
@@ -82,7 +85,7 @@
               </figure>
             </div>
 
-            <div class="category-card">
+            <div class="category-card swiper-slide">
               <figure>
                 <img src="assets/icons/location.png" alt="Passeio" />
                 <figcaption>
@@ -92,7 +95,7 @@
               </figure>
             </div>
 
-            <div class="category-card">
+            <div class="category-card swiper-slide">
               <figure>
                 <img src="assets/icons/accomodation.png" alt="Hospedagem" />
                 <figcaption>
@@ -104,26 +107,26 @@
           </div>
         </div>
 
-        <div class="subcategories-wrapper">
+        <div class="subcategories-wrapper swiper-container">
           <h2>Subcategorias</h2>
-          <div class="subcategories">
-            <div class="subcategory-card">
+          <div class="subcategories swiper-wrapper">
+            <div class="subcategory-card swiper-slide">
               <input type="radio" name="id_subcategory" id="subcategory-1" value="1" checked />
               <label for="subcategory-1">Parques</label>
             </div>
-            <div class="subcategory-card active">
+            <div class="subcategory-card swiper-slide">
               <input type="radio" name="id_subcategory" id="subcategory-2" value="2" />
               <label for="subcategory-2">Caminhadas</label>
             </div>
-            <div class="subcategory-card">
+            <div class="subcategory-card swiper-slide">
               <input type="radio" name="id_subcategory" id="subcategory-3" value="3" />
               <label for="subcategory-3">Museus</label>
             </div>
-            <div class="subcategory-card">
+            <div class="subcategory-card swiper-slide">
               <input type="radio" name="id_subcategory" id="subcategory-4" value="4" />
               <label for="subcategory-4">Praias</label>
             </div>
-            <div class="subcategory-card">
+            <div class="subcategory-card swiper-slide">
               <input type="radio" name="id_subcategory" id="subcategory-5" value="5" />
               <label for="subcategory-5">Cachoeiras</label>
             </div>
@@ -223,6 +226,8 @@
     </form>
   </div>
 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="js/carousel.js" defer></script>
   <script src="js/floating-label.js" defer></script>
 </body>
 

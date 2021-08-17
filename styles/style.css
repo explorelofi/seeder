@@ -117,10 +117,13 @@ form h3 {
 }
 
 .categories {
+  height: 160px;
   column-gap: 2rem;
 }
 
 .subcategories {
+  height: 40px;
+  margin-top: 25px;
   column-gap: 1.5rem;
 }
 
@@ -156,6 +159,10 @@ form h3 {
   justify-content: center;
   align-items: center;
   border-top: 1px solid rgb(85 58 150 / 12%);
+}
+
+.subcategories .subcategory-card {
+  width: fit-content !important;
 }
 
 .categories .category-card,
