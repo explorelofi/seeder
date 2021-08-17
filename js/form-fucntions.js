@@ -64,6 +64,46 @@ function triggerBlurEvent(element) {
   element.dispatchEvent(event);
 }
 
+function checkClickedCategory(clickedCategory) {
+  if (clickedCategory === 'Comida e bebida') {
+    return 'Comida e bebida';
+  } else if (clickedCategory === 'Passeio') {
+    return 'Passeio';
+  } else if (clickedCategory === 'Hospedagem') {
+    return 'Hospedagem';
+  }
+}
+
+function handleActiveCategory(categories, clickedCategory) {
+  for (let index = 0; index < categories.length; index++) {
+    const category = categories[index];
+    category.classList.remove('active');
+    if (category.innerText === clickedCategory) category.classList.add('active');
+  }
+}
+
+function checkClickedSubcategory(clickedCategory) {
+  if (clickedCategory === 'Parques') {
+    return clickedCategory;
+  } else if (clickedCategory === 'Caminhadas') {
+    return clickedCategory;
+  } else if (clickedCategory === 'Museus') {
+    return clickedCategory;
+  } else if (clickedCategory === 'Praias') {
+    return clickedCategory;
+  } else if (clickedCategory === 'Cachoeiras') {
+    return clickedCategory;
+  }
+}
+
+function handleActiveSubcategory(categories, clickedSubcategory) {
+  for (let index = 0; index < categories.length; index++) {
+    const subcategory = categories[index];
+    subcategory.classList.remove('active');
+    if (subcategory.innerText === clickedSubcategory) subcategory.classList.add('active');
+  }
+}
+
 /**
  * Generates a random password.
  *

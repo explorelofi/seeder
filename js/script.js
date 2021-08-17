@@ -17,6 +17,25 @@ $(document).ready(async function () {
     fillReadonlyCity(idCity, cities);
   });
 
+  const categoriesEl = document.querySelector('.categories-wrapper');
+  categoriesEl.addEventListener('click', (e) => {
+    const categories = categoriesEl.children[1].children;
+    const clickedCard = e.target.innerText;
+    const clickedCardName = checkClickedCategory(clickedCard);
+    handleActiveCategory(categories, clickedCardName);
+  });
+
+  const subcategoriesEl = document.querySelector('.subcategories-wrapper');
+  subcategoriesEl.addEventListener('click', (e) => {
+    const subcategories = subcategoriesEl.children[1].children;
+    const clickedCard = e.target.innerText;
+    if (e.target.localName === 'label') {
+      const clickedCardName = checkClickedSubcategory(clickedCard);
+      console.dir(e.target);
+      handleActiveSubcategory(subcategories, clickedCardName);
+    }
+  });
+
   const registerButton = document.querySelector('#registerButton');
   registerButton.addEventListener('click', (e) => {
     e.preventDefault();

@@ -138,6 +138,7 @@ form h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: -1;
 }
 
 .categories .category-card figure img {
@@ -156,16 +157,9 @@ form h3 {
 
 .categories .category-card,
 .subcategories .subcategory-card {
-  border: 1px solid rgb(85 58 150 / 12%);
-  border-radius: 10px;
-  cursor: pointer;
   letter-spacing: 0.3px;
   line-height: 1.2em;
   position: relative;
-}
-
-.subcategories .subcategory-card {
-  padding: 0.4rem 0.8rem;
 }
 
 .categories .category-card label,
@@ -173,11 +167,17 @@ form h3 {
   cursor: pointer;
 }
 
+.subcategories .subcategory-card label {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgb(85 58 150 / 12%);
+  border-radius: 10px;
+}
+
 .categories .category-card.active {
   box-shadow: 0px 1px 14px 14px rgb(85 58 150 / 12%);
 }
 
-.subcategories .subcategory-card.active {
+.subcategories .subcategory-card label.active {
   box-shadow: 0px 1px 14px 2px rgb(85 58 150 / 12%);
 }
 
@@ -199,7 +199,7 @@ form h3 {
   width: 18px;
   height: 18px;
   right: -5px;
-  top: -5px;
+  top: -15px;
   background-image: url(../assets/icons/check-outline-green.png);
   background-size: 18px 18px;
   background-repeat: no-repeat;
