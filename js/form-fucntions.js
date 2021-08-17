@@ -208,3 +208,47 @@ function genRandomString(length = 8) {
   }
   return randomString;
 }
+
+/**
+ * Return cep object from API Viacep
+ * @param {string} cep Cep from address form
+ * @returns {Object}
+ */
+async function getCep(cep) {
+  return fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then((response) => response.json())
+    .then((cep) => {
+      return cep;
+    })
+    .catch((err) => console.error(err));
+}
+
+/**
+ * Fill address form with object and set focus on input number
+ *
+ * @param {Object} address Object from API Viacep
+ */
+function fillFormAddress(address) {
+  const street = document.querySelector('#street');
+  const district = document.querySelector('#district');
+  const number = document.querySelector('#number');
+  street.value = address.logradouro;
+  triggerBlurEvent(street);
+  district.value = address.bairro;
+  triggerBlurEvent(district);
+  number.focus();
+}
+
+/**
+ * Parse cep string, add dash and replace to max value
+ *
+ * @param {Object} cepEl An HTML object of cep
+ * @returns {string}
+ */
+function parseCepFromForm(cepEl) {
+  let cepString = cepEl.value;
+  if (cepString.length === 5) cepString += '-';
+  if (cepString.length > 9) cepString = cepString.substring(0, 9);
+  const cepValue = cepString.replace(this.regexCep, '');
+  return cepValue;
+}

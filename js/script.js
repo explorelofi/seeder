@@ -64,6 +64,17 @@ $(document).ready(async function () {
     handleBackgroundImage(element, images);
   });
 
+  const cepEl = document.querySelector('#cep');
+  cepEl.addEventListener('input', async (e) => {
+    const el = e.target;
+    let cepValue = parseCepFromForm(el);
+    if (cepValue.length === 9) {
+      const cepNumbers = cepValue.replace('-', '');
+      const address = await getCep(cepNumbers);
+      fillFormAddress(address);
+    }
+  });
+
   const registerButton = document.querySelector('#registerButton');
   registerButton.addEventListener('click', (e) => {
     e.preventDefault();
