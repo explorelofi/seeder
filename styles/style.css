@@ -25,8 +25,16 @@ body form {
   background: transparent;
 }
 
-.form-city .form-textarea {
+.form-city {
   margin-bottom: 0 !important;
+}
+
+.form-textarea {
+  height: auto !important;
+}
+
+.input-container > textarea + label {
+  top: 20%;
 }
 
 .form-city div {
@@ -272,6 +280,12 @@ form h3 {
 .rate .input-container:hover,
 .values .input-container:hover {
   background-color: transparent !important;
+}
+
+.rate .form-input .raters {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
 }
 
 .rate .form-input .star-icon {
