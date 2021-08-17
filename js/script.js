@@ -31,7 +31,6 @@ $(document).ready(async function () {
     const clickedCard = e.target.innerText;
     if (e.target.localName === 'label') {
       const clickedCardName = checkClickedSubcategory(clickedCard);
-      console.dir(e.target);
       handleActiveSubcategory(subcategories, clickedCardName);
     }
   });

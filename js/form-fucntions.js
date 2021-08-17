@@ -161,8 +161,13 @@ function checkClickedSubcategory(clickedSubcategory) {
 function handleActiveSubcategory(subcategories, clickedSubcategory) {
   for (let index = 0; index < subcategories.length; index++) {
     const subcategory = subcategories[index];
+    subcategory.children[1].classList.remove('active');
     subcategory.classList.remove('active');
-    if (subcategory.innerText === clickedSubcategory) subcategory.classList.add('active');
+    if (subcategory.innerText === clickedSubcategory) {
+      console.dir(subcategory.children[1]);
+      subcategory.children[1].classList.add('active');
+      subcategory.classList.add('active');
+    }
   }
 }
 

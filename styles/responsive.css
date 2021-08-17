@@ -7,6 +7,23 @@
   .evaluation-wrapper {
     display: grid;
   }
+
+  .form-address {
+    display: grid;
+    grid-template-areas:
+      'cep'
+      'street'
+      'district'
+      'city'
+      'state'
+      'number';
+    column-gap: 1.5rem;
+  }
+
+  .form-user {
+    display: grid;
+    justify-content: unset;
+  }
 }
 
 /* SM Screen */
