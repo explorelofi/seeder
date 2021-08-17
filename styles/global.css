@@ -45,3 +45,38 @@
   height: auto;
   background-color: transparent;
 }
+
+/* Carousel Swiper */
+.categories-wrapper .swiper-button-next,
+.categories-wrapper .swiper-container-rtl .swiper-button-prev,
+.categories-wrapper .swiper-button-prev,
+.categories-wrapper .swiper-container-rtl .swiper-button-next {
+  margin-top: 5px;
+  padding: 0 0.5rem;
+  border-radius: 50%;
+  background: rgb(85 58 150 / 10%);
+}
+
+.categories-wrapper .swiper-button-prev:after,
+.categories-wrapper .swiper-container-rtl .swiper-button-next:after,
+.categories-wrapper .swiper-button-next:after,
+.categories-wrapper .swiper-container-rtl .swiper-button-prev:after {
+  font-size: 20px;
+}
+
+.subcategories-wrapper .swiper-button-next,
+.subcategories-wrapper .swiper-container-rtl .swiper-button-prev,
+.subcategories-wrapper .swiper-button-prev,
+.subcategories-wrapper .swiper-container-rtl .swiper-button-next {
+  margin-top: 5px;
+  padding: 0 0.5rem;
+  border-radius: 50%;
+  background: rgb(85 58 150 / 10%);
+}
+
+.subcategories-wrapper .swiper-button-prev:after,
+.subcategories-wrapper .swiper-container-rtl .swiper-button-next:after,
+.subcategories-wrapper .swiper-button-next:after,
+.subcategories-wrapper .swiper-container-rtl .swiper-button-prev:after {
+  font-size: 15px;
+}

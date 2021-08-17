@@ -11,8 +11,8 @@ const swiperCategories = new Swiper('.categories-wrapper.swiper-container', {
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.categories-wrapper .swiper-button-next',
+    prevEl: '.categories-wrapper .swiper-button-prev',
   },
 
   // And if we need scrollbar
@@ -41,8 +41,8 @@ const swiperSubcategories = new Swiper('.subcategories-wrapper.swiper-container'
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.subcategories-wrapper .swiper-button-next',
+    prevEl: '.subcategories-wrapper .swiper-button-prev',
   },
 
   // And if we need scrollbar
