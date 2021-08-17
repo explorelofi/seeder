@@ -36,42 +36,33 @@ $(document).ready(async function () {
     }
   });
 
-  const rates = document.querySelector('.rate .form-input');
-  rates.addEventListener('click', (e) => {
+  const ratesEl = document.querySelector('.rate .form-input');
+  ratesEl.addEventListener('click', (event) => {
     const images = {
       filled: 'url(../assets/icons/star-filled.png)',
       outline: 'url(../assets/icons/star-outline.png)',
     };
 
-    const clickedEl = e.target;
-    if (clickedEl.localName === 'figure') {
-      const clickedIndex = e.target.dataset.index;
-      Array.from(rates.children).map((el) => {
-        if (el.localName === 'figure') {
-          el.style.backgroundImage = images.filled;
-          if (el.dataset.index > clickedIndex) el.style.backgroundImage = images.outline;
-        }
-      });
-    }
+    const element = {
+      elements: ratesEl,
+      event,
+    };
+    handleBackgroundImage(element, images);
   });
 
-  const values = document.querySelector('.values .form-input');
-  values.addEventListener('click', (e) => {
+  const valuesEl = document.querySelector('.values .form-input');
+  valuesEl.addEventListener('click', (event) => {
     const images = {
       filled: 'url(../assets/icons/value-filled.png)',
       outline: 'url(../assets/icons/value-outline.png)',
     };
 
-    const clickedEl = e.target;
-    if (clickedEl.localName === 'figure') {
-      const clickedIndex = e.target.dataset.index;
-      Array.from(values.children).map((el) => {
-        if (el.localName === 'figure') {
-          el.style.backgroundImage = images.filled;
-          if (el.dataset.index > clickedIndex) el.style.backgroundImage = images.outline;
-        }
-      });
-    }
+    const element = {
+      elements: valuesEl,
+      event,
+    };
+
+    handleBackgroundImage(element, images);
   });
 
   const registerButton = document.querySelector('#registerButton');
