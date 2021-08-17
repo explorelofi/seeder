@@ -36,6 +36,26 @@ $(document).ready(async function () {
     }
   });
 
+  const rates = document.querySelector('.evaluation-wrapper .rate .form-input');
+  rates.addEventListener('click', (e) => {
+    const images = {
+      filled: 'url(../assets/icons/star-filled.png)',
+      outline: 'url(../assets/icons/star-outline.png)',
+    };
+
+    const clickedEl = e.target;
+    if (clickedEl.localName === 'figure') {
+      const clickedIndex = e.target.dataset.index;
+      Array.from(rates.children).map((el) => {
+        if (el.localName === 'figure') {
+          console.dir(el);
+          el.style.backgroundImage = images.filled;
+          if (el.dataset.index > clickedIndex) el.style.backgroundImage = images.outline;
+        }
+      });
+    }
+  });
+
   const registerButton = document.querySelector('#registerButton');
   registerButton.addEventListener('click', (e) => {
     e.preventDefault();
