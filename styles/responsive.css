@@ -9,6 +9,11 @@
   body form {
     padding: 1rem;
   }
+
+  .categories,
+  .subcategories {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 425px) {

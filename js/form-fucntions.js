@@ -38,11 +38,8 @@ async function getCities(idState) {
  */
 function insertStatesOnSelect(AllStates) {
   const statesInput = document.querySelector('#state');
-  const states = AllStates.map(({ id_state, name }, index) => {
-    const id = index === 0 ? 0 : id_state;
-    const stateName = index === 0 ? 'Selecione um estado' : name;
-    return `<option value="${id}">${stateName}</option>`;
-  });
+  const states = AllStates.map(({ id_state, name }) => `<option value="${id_state}">${name}</option>`);
+  states.splice(0, 0, '<option value="0">Selecione um estado</option>');
   statesInput.innerHTML = states;
 }
 
@@ -53,11 +50,8 @@ function insertStatesOnSelect(AllStates) {
  */
 function insertCitiesOnSelect(AllCities) {
   const citiesInput = document.querySelector('#city');
-  const cities = AllCities.map(({ id_city, name }, index) => {
-    const id = index === 0 ? 0 : id_city;
-    const cityName = index === 0 ? 'Selecione uma cidade' : name;
-    return `<option value="${id}">${cityName}</option>`;
-  });
+  const cities = AllCities.map(({ id_city, name }) => `<option value="${id_city}">${name}</option>`);
+  cities.slice(0, 0, '<option value="0">Selecione uma cidade</option>');
   citiesInput.disabled = false;
   citiesInput.innerHTML = cities;
 }
