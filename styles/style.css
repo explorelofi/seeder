@@ -293,10 +293,18 @@ form h3 {
 }
 
 .rate .form-input .star-icon {
+  background-image: url(../assets/icons/star-filled.png);
+}
+
+.rate .form-input .star-icon + .star-icon {
   background-image: url(../assets/icons/star-outline.png);
 }
 
 .values .form-input .value-icon {
+  background-image: url(../assets/icons/value-filled.png);
+}
+
+.values .form-input .value-icon + .value-icon {
   background-image: url(../assets/icons/value-outline.png);
 }
 
