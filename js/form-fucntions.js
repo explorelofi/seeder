@@ -252,3 +252,18 @@ function parseCepFromForm(cepEl) {
   const cepValue = cepString.replace(this.regexCep, '');
   return cepValue;
 }
+
+/**
+ * Change favicon according to theme color
+ */
+function toggleFavicon() {
+  const faviconWhite = 'assets/favicon/favicon-white.png';
+  const faviconPurple = 'assets/favicon/favicon-purple.png';
+  const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+  const iconUrl = mediaQueryList.matches ? faviconWhite : faviconPurple;
+  const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = iconUrl;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}

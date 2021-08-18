@@ -33,6 +33,10 @@ body form {
   height: auto !important;
 }
 
+.form-textarea textarea {
+  resize: vertical;
+}
+
 .input-container > textarea + label {
   top: 20%;
 }
