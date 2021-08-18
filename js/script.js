@@ -1,4 +1,6 @@
 $(document).ready(async function () {
+  toggleFavicon();
+
   const states = await getStates();
   let cities = '';
   insertStatesOnSelect(states);
@@ -68,6 +70,7 @@ $(document).ready(async function () {
   cepEl.addEventListener('input', async (e) => {
     const el = e.target;
     let cepValue = parseCepFromForm(el);
+    el.value = cepValue;
     if (cepValue.length === 9) {
       const cepNumbers = cepValue.replace('-', '');
       const address = await getCep(cepNumbers);
