@@ -52,8 +52,8 @@ function insertCitiesOnSelect(AllCities) {
   const citiesInput = document.querySelector('#city');
   const cities = AllCities.map(({ id_city, name }) => `<option value="${id_city}">${name}</option>`);
   cities.slice(0, 0, '<option value="0">Selecione uma cidade</option>');
-  citiesInput.disabled = false;
   citiesInput.innerHTML = cities;
+  citiesInput.disabled = false;
 }
 
 /**

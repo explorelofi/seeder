@@ -21,8 +21,23 @@ $(document).ready(async function () {
 
   const categoriesEl = document.querySelector('.categories-wrapper');
   categoriesEl.addEventListener('click', (e) => {
+    let clickedCard = '';
     const categories = categoriesEl.children[1].children;
-    const clickedCard = e.target.innerText;
+    console.dir(e.target.localName);
+    console.dir(e.target);
+    if (e.target.localName === 'img') {
+      clickedCard = e.target.nextElementSibling.lastElementChild.innerText;
+    } else if (e.target.localName === 'label') {
+      clickedCard = e.target.innerText;
+    } else if (e.target.localName === 'input') {
+      clickedCard = e.target.nextElementSibling.innerText;
+    } else if (e.target.localName === 'figcaption') {
+      clickedCard = e.target.children[1].innerText;
+    } else if (e.target.localName === 'figure') {
+      clickedCard = e.target.children[1].children[1].innerText;
+    } else if (e.target.localName === 'div') {
+      clickedCard = e.target.children[0].children[1].children[1].innerText;
+    }
     const clickedCardName = checkClickedCategory(clickedCard);
     handleActiveCategory(categories, clickedCardName);
   });
