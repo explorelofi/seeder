@@ -19,6 +19,20 @@ $(document).ready(async function () {
     fillReadonlyCity(idCity, cities);
   });
 
+  const cityChooseFile = document.querySelector('#cityCover');
+  cityChooseFile.addEventListener('change', (e) => {
+    const imgPreview = document.querySelector('#cityImgPreview');
+    const element = e.target;
+    getImageData(element, imgPreview, 'city');
+  });
+
+  const experienceChooseFile = document.querySelector('#experienceCover');
+  experienceChooseFile.addEventListener('change', (e) => {
+    const imgPreview = document.querySelector('#experienceImgPreview');
+    const element = e.target;
+    getImageData(element, imgPreview, 'experience');
+  });
+
   const categoriesEl = document.querySelector('.categories-wrapper');
   categoriesEl.addEventListener('click', (e) => {
     let clickedCard = '';

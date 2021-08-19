@@ -57,6 +57,28 @@ function insertCitiesOnSelect(AllCities) {
 }
 
 /**
+ * Insert selected image on input to preview
+ *
+ * @param {Object} element Input file to get image
+ * @param {Object} imgPreview Image tag to insert image to preview
+ * @param {string} type Type of image, city or experience
+ */
+function getImageData(element, imgPreview, type) {
+  const label = document.querySelector(`.${type}-img-label`);
+  const files = element.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener('load', (e) => {
+      const imageUrl = e.target.result;
+      label.innerText = '';
+      imgPreview.style.display = 'block';
+      imgPreview.setAttribute('src', imageUrl);
+    });
+  }
+}
+
+/**
  * Fill the input state of experience form (readonly input)
  *
  * @param {number} idState id of selected state

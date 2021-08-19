@@ -22,6 +22,7 @@ body form {
 .form-city .form-input,
 .form-experience .form-input {
   margin-bottom: 1.5rem;
+  position: relative;
   background: transparent;
 }
 
@@ -98,6 +99,7 @@ form h3 {
 }
 
 .form-input input[type='file'] + label {
+  height: 56px;
   text-align: center;
   cursor: pointer;
 }
@@ -316,6 +318,21 @@ form h3 {
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+.city-img-preview,
+.experience-img-preview {
+  max-height: 50px;
+  width: auto;
+  margin-left: -25px;
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+}
+
+.form-city .form-input:nth-child(3) {
+  margin-bottom: 2rem;
 }
 
 /* Form Address */
