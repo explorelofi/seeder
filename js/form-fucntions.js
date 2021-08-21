@@ -360,3 +360,50 @@ function categoriesToHTML(categories) {
     })
     .join('');
 }
+
+/**
+ * Insert HTML elements of subcategories
+ *
+ * @param {DOM{}} el A HTML element
+ * @returns void
+ */
+async function addSubcategories(el) {
+  const subcategories = await getSubcategoriesByCategory();
+  const subcategoriesHTML = subcategoriesToHTML(subcategories);
+  el.innerHTML = subcategoriesHTML;
+}
+
+/**
+ * Get all subcategories from API
+ *
+ * @returns {Object[]} An array of subcategories - {id, name}
+ */
+async function getSubcategoriesByCategory(idCategory = 1) {
+  return fetch(`http://api.lazzacriativa.com/v0/subcategory/category/${idCategory}`)
+    .then((response) => response.json())
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+/**
+ * Parse an array of objects (subcategories) and parse to HTML elements
+ *
+ * @param {Object[]} subcategories An array of subcategories - {id, name}
+ * @returns {DOM[]} Returns an array of HTML elements
+ */
+function subcategoriesToHTML(subcategories) {
+  return subcategories
+    .map((s, index) => {
+      const active = index === 0 ? 'active' : '';
+      const checked = index === 0 ? 'checked' : '';
+      return `<div class="subcategory-card swiper-slide ${active}">
+              <input type="radio" name="id_subcategory" id="subcategory-${s.id}" value="${s.id}" ${checked} />
+              <label for="subcategory-${s.id}" class="active">${s.name}</label>
+            </div>`;
+    })
+    .join('');
+}

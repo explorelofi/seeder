@@ -60,6 +60,10 @@ $(document).ready(async function () {
   });
 
   const subcategoriesEl = document.querySelector('.subcategories-wrapper');
+  const subcategoriesWrapper = subcategoriesEl.querySelector('.subcategories');
+
+  addSubcategories(subcategoriesWrapper);
+
   subcategoriesEl.addEventListener('click', (e) => {
     const subcategories = subcategoriesEl.children[1].children;
     const clickedCard = e.target.innerText;
