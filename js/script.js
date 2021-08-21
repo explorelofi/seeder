@@ -34,11 +34,14 @@ $(document).ready(async function () {
   });
 
   const categoriesEl = document.querySelector('.categories-wrapper');
+  const categoriesWrapper = categoriesEl.querySelector('.categories');
+
+  addCategories(categoriesWrapper);
+
   categoriesEl.addEventListener('click', (e) => {
     let clickedCard = '';
     const categories = categoriesEl.children[1].children;
-    console.dir(e.target.localName);
-    console.dir(e.target);
+
     if (e.target.localName === 'img') {
       clickedCard = e.target.nextElementSibling.lastElementChild.innerText;
     } else if (e.target.localName === 'label') {
@@ -107,32 +110,36 @@ $(document).ready(async function () {
     }
   });
 
+  // Adicionar local
   const registerButton = document.querySelector('#registerButton');
   registerButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const form = document.forms[0];
-    let dataObj = {};
-    let imagesFD = new FormData();
+    // const form = document.forms[0];
+    // let dataObj = {};
+    // let imagesFD = new FormData();
 
-    for (let index = 0; index < form.length; index++) {
-      if (form[index].name !== 'registerButton') {
-        if (form[index].name !== 'city_image_name' && form[index].name !== 'experience_image_name') {
-          dataObj[form[index].name] = form[index].value;
-        } else {
-          const image = document.querySelector(`#${form[index].id}`).files[0];
-          const imageName = genRandomString(16);
-          const extension = form[index].value.split('.').slice(-1);
-          imagesFD.append([form[index].name], image, `${imageName}.${extension}`);
-          dataObj[form[index].name] = `${imageName}.${extension}`;
-        }
-      }
-    }
+    // for (let index = 0; index < form.length; index++) {
+    //   if (form[index].name !== 'registerButton') {
+    //     if (form[index].name !== 'city_image_name' && form[index].name !== 'experience_image_name') {
+    //       dataObj[form[index].name] = form[index].value;
+    //     } else {
+    //       const image = document.querySelector(`#${form[index].id}`).files[0];
+    //       const imageName = genRandomString(16);
+    //       const extension = form[index].value.split('.').slice(-1);
+    //       imagesFD.append([form[index].name], image, `${imageName}.${extension}`);
+    //       dataObj[form[index].name] = `${imageName}.${extension}`;
+    //     }
+    //   }
+    // }
 
     $.ajax({
       url: 'http://localhost/_Lofi/api/v0/seeder',
       type: 'POST',
-      data: dataObj,
+      // data: dataObj,
       cache: false,
+      beforeSend: () => {
+        showLoading();
+      },
       success: (response) => {
         const res = JSON.parse(response);
         if (res.status === 200) {
@@ -140,7 +147,7 @@ $(document).ready(async function () {
             // url: 'save_images.php',
             url: 'http://localhost/_Lofi/api/v0/upload',
             type: 'POST',
-            data: imagesFD,
+            // data: imagesFD,
             async: false,
             cache: false,
             contentType: false,
@@ -148,18 +155,32 @@ $(document).ready(async function () {
             success: (response) => {
               const res = JSON.parse(response.substring(69, 138));
               if (res.success && res.status === 200) {
-                alert('Cadastro feito com sucesso');
               }
+              Swal.close();
             },
             error: (err) => {
               console.dir(err);
+              Swal.close();
             },
           });
         }
+        Swal.close();
       },
       error: (err) => {
         console.dir(err);
+        Swal.close();
       },
     });
   });
 });
+
+function showLoading() {
+  Swal.fire({
+    title: 'Salvando sua experiência..',
+    html: 'Aguarde um momento por favor',
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+}

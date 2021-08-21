@@ -283,3 +283,80 @@ function toggleFavicon() {
   link.href = iconUrl;
   document.getElementsByTagName('head')[0].appendChild(link);
 }
+
+/**
+ * Insert HTML elements of categories
+ *
+ * @param {DOM{}} el A HTML element
+ * @returns void
+ */
+async function addCategories(el) {
+  const categories = await getCategories();
+  const parsedCategories = parseCategories(categories);
+  const categoriesHTML = categoriesToHTML(parsedCategories);
+  el.innerHTML = categoriesHTML;
+}
+
+/**
+ * Get all categories from API
+ *
+ * @returns {Object[]} An array of categories - {id, name}
+ */
+async function getCategories() {
+  return fetch('http://api.lazzacriativa.com/v0/category')
+    .then((response) => response.json())
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+/**
+ * Add the icon name on the category object
+ *
+ * @param {Object[]} categories An array of categories - {id, name}
+ * @returns {Object[]} categories An array of categories with icon name - {id, name, icon}
+ */
+function parseCategories(categories) {
+  return categories.map((c) => {
+    let iconName = '';
+    if (c.name === 'Comida e Bebida') {
+      iconName = 'food-drink';
+    } else if (c.name === 'Hospedagem') {
+      iconName = 'location';
+    } else if (c.name === 'Passeio') {
+      iconName = 'accomodation';
+    }
+    return {
+      id: c.id_category,
+      name: c.name,
+      icon: iconName,
+    };
+  });
+}
+
+/**
+ * Parse an array of objects (categories) and parse to HTML elements
+ *
+ * @param {Object[]} categories An array of categories - {id, name, icon}
+ * @returns {DOM[]} Returns an array of HTML elements
+ */
+function categoriesToHTML(categories) {
+  return categories
+    .map((c, index) => {
+      const active = index === 0 ? 'active ' : '';
+      const checked = index === 0 ? 'checked ' : '';
+      return `<div class="category-card swiper-slide ${active}" data-name="${c.icon}">
+          <figure>
+            <img src="assets/icons/${c.icon}.png" alt="${c.name}" />
+            <figcaption>
+              <input type="radio" name="id_category" id="category-${c.id}" value="${c.id}" ${checked} />
+              <label for="category-${c.id}">${c.name}</label>
+            </figcaption>
+          </figure>
+        </div>`;
+    })
+    .join('');
+}
