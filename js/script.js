@@ -55,8 +55,7 @@ $(document).ready(async function () {
     } else if (e.target.localName === 'div') {
       clickedCard = e.target.children[0].children[1].children[1].innerText;
     }
-    const clickedCardName = checkClickedCategory(clickedCard);
-    handleActiveCategory(categories, clickedCardName);
+    handleActiveCategory(categories, clickedCard);
   });
 
   const subcategoriesEl = document.querySelector('.subcategories-wrapper');
@@ -65,12 +64,15 @@ $(document).ready(async function () {
   addSubcategories(subcategoriesWrapper);
 
   subcategoriesEl.addEventListener('click', (e) => {
+    let clickedCard = '';
     const subcategories = subcategoriesEl.children[1].children;
-    const clickedCard = e.target.innerText;
+
     if (e.target.localName === 'label') {
-      const clickedCardName = checkClickedSubcategory(clickedCard);
-      handleActiveSubcategory(subcategories, clickedCardName);
+      clickedCard = e.target.innerText;
+    } else if (e.target.localName === 'input') {
+      clickedCard = e.target.nextElementSibling.innerText;
     }
+    handleActiveSubcategory(subcategories, clickedCard);
   });
 
   const ratesEl = document.querySelector('.rate .form-input');

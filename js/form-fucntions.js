@@ -119,22 +119,6 @@ function triggerBlurEvent(element) {
 }
 
 /**
- * Check which category card was clicked and returns the name of card
- *
- * @param {string} clickedCategory Text of category clicked
- * @returns {string}
- */
-function checkClickedCategory(clickedCategory) {
-  if (clickedCategory === 'Comida e bebida') {
-    return 'Comida e bebida';
-  } else if (clickedCategory === 'Passeio') {
-    return 'Passeio';
-  } else if (clickedCategory === 'Hospedagem') {
-    return 'Hospedagem';
-  }
-}
-
-/**
  * Handle which category card was clicked, set active class on index clicked
  *
  * @param {Array<Object>} categories HTML elements
@@ -145,26 +129,6 @@ function handleActiveCategory(categories, clickedCategory) {
     const category = categories[index];
     category.classList.remove('active');
     if (category.innerText === clickedCategory) category.classList.add('active');
-  }
-}
-
-/**
- * Check which subcategory card was clicked and returns the name of card
- *
- * @param {string} clickedSubcategory Text of subcategory clicked
- * @returns {string}
- */
-function checkClickedSubcategory(clickedSubcategory) {
-  if (clickedSubcategory === 'Parques') {
-    return clickedSubcategory;
-  } else if (clickedSubcategory === 'Caminhadas') {
-    return clickedSubcategory;
-  } else if (clickedSubcategory === 'Museus') {
-    return clickedSubcategory;
-  } else if (clickedSubcategory === 'Praias') {
-    return clickedSubcategory;
-  } else if (clickedSubcategory === 'Cachoeiras') {
-    return clickedSubcategory;
   }
 }
 
@@ -180,7 +144,6 @@ function handleActiveSubcategory(subcategories, clickedSubcategory) {
     subcategory.children[1].classList.remove('active');
     subcategory.classList.remove('active');
     if (subcategory.innerText === clickedSubcategory) {
-      console.dir(subcategory.children[1]);
       subcategory.children[1].classList.add('active');
       subcategory.classList.add('active');
     }
@@ -401,8 +364,8 @@ function subcategoriesToHTML(subcategories) {
       const active = index === 0 ? 'active' : '';
       const checked = index === 0 ? 'checked' : '';
       return `<div class="subcategory-card swiper-slide ${active}">
-              <input type="radio" name="id_subcategory" id="subcategory-${s.id}" value="${s.id}" ${checked} />
-              <label for="subcategory-${s.id}" class="active">${s.name}</label>
+              <input type="radio" name="id_subcategory" id="subcategory-${s.id_subcategory}" value="${s.id_subcategory}" ${checked} />
+              <label for="subcategory-${s.id_subcategory}" class="active">${s.name}</label>
             </div>`;
     })
     .join('');
