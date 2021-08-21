@@ -322,7 +322,7 @@ async function getCategories() {
 function parseCategories(categories) {
   return categories.map((c) => {
     let iconName = '';
-    if (c.name === 'Comida e Bebida') {
+    if (c.name === 'Comida e bebida') {
       iconName = 'food-drink';
     } else if (c.name === 'Hospedagem') {
       iconName = 'location';
